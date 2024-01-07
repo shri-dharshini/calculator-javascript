@@ -57,7 +57,7 @@ const calculate =(n1,operator,n2)=>{
   }
 }
 
-const display=document.querySelector(".calculator__display") //access display
+const display=document.querySelector(".calculator-display") //access display
 keys.addEventListener('click',e=>{
   if (e.target.matches('button')){
     const key=e.target
