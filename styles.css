@@ -1,0 +1,82 @@
+html {
+    font-size: 175%;
+    font-weight: 300;
+    line-height: 1.3;
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body{
+    align-items: center;
+    background-image: linear-gradient(236deg, #e7b6e8, #dde5ac);
+    display: flex;
+    align-items: center; /*cross axis*/
+    justify-content: center; /*main axis*/
+    height:100vh;
+}
+
+.container {
+    max-width: 20em;
+}
+
+.calculator{
+    border-radius: 12px;
+    margin: auto 2em auto 0;
+    overflow: hidden; /*handle part of object that exceeds dimensions*/
+    max-width: 15em;
+}
+
+.calculator-display{
+    background-color: #222222;
+    color:#fff;
+    text-align: right;
+    font-size: 1.7em;
+    padding: 0.5em 0.75em;
+}
+
+.calculator-buttons{
+    background-color: #999;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.calculator-buttons>*{
+    padding: 0.5em 0.75em;
+    position:relative;
+    /*relative positioning means that any element directly within an element with the class .calculator-buttons will have 
+    a positioning context set to relative. Therefore, if you use absolute positioning inside these elements 
+    (like in the :active::before and .is-depressed::before pseudo-elements), they will be positioned relative 
+    to these children due to the position: relative; setting.
+    pseudo class will work*/
+    background-color: #fff;
+    border:0;
+    font-size: inherit;
+}
+
+.calculator-buttons>*:active::before,
+.calculator-buttons > .is-depressed::before {
+    /*clicked state, adding before button*/
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5) inset; /*shadow inside the element-inset*/
+    content: ""; /*no change in content*/
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left:0; 
+    bottom: 0;/*same position as before. just change color*/
+    z-index: 1; /*above the normal element*/
+}
+.operator{
+    background-color: #eee;
+}
+
+.equal-button{
+    background-color: orange;
+    grid-column: -2;
+    grid-row: 2/span 4;
+}
