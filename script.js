@@ -1,5 +1,5 @@
 const calculator=document.querySelector(".calculator")
-const keys=calculator.querySelector(".calculator__keys")
+const keys=calculator.querySelector(".calculator-buttons")
 /*
 (function (a) {
     return a + 100;
